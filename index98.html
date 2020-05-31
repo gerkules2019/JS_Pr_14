@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            $('document').ready(function(){
+                var table = new Array(10);
+               
+                var col = 0;
+                var raw = 0;
+                var w = '';
+                var s = '';
+                
+                for(var i = 0; i < 10; i++){
+                    table[i] = new Array(10);
+                }
+                for (raw = 0; raw < 10; raw++){
+                    for (col = 0; col < 10; col++){
+                        table[raw][col] = (raw + 1) * (col + 1);
+                    }
+                }
+                for (col = 0; col < 10; col++){
+                    for (raw = 0; raw < 5; raw++){
+                        if (raw < 9){
+                            s = "&ensp;&ensp;&ensp;&ensp;" + (raw + 1);
+                        }
+                        else{
+                            s = (raw + 1);
+                        }
+                        w += s + " x ";
+                        if (col < 9){
+                            s = "&ensp;&ensp;" + (col + 1);
+                        }
+                        else{
+                            s = "&ensp;" +  (col + 1);
+                        }
+                        w += s + "=";
+                        if (table[raw][col] < 100){
+                            if(table[raw][col] < 10){
+                                s = "&ensp;&ensp;" + table[raw][col];
+                            }
+                            else{
+                                s = "&ensp;" + table[raw][col];
+                            }
+                        }
+                        else{
+                            s = table[raw][col];
+                        }
+                        w += s + "&nbsp;&nbsp;&nbsp;";
+                    }
+                    if(raw >= 4){
+                        w +='<br>';
+                    }
+                }
+                w +='<br><br>';
+                for (col = 0; col < 10; col++){
+                    for (raw = 5; raw < 10; raw++){
+                        if (raw < 9){
+                            s = "&ensp;&ensp;&ensp;&ensp;" + (raw + 1);
+                        }
+                        else{
+                            s ="&ensp;&ensp;&ensp;" +  (raw + 1);
+                        }
+                        w += s + " x ";
+                        if (col < 9){
+                            s = "&ensp;&ensp;" + (col + 1);
+                        }
+                        else{
+                            s = s = "&ensp;" +  (col + 1);
+                        }
+                        w += s + "=";
+                        if (table[raw][col] < 100){
+                            if(table[raw][col] < 10){
+                                s = "&ensp;&ensp;" + table[raw][col];
+                            }
+                            else{
+                                s = "&ensp;" + table[raw][col];
+                            }
+                        }
+                        else{
+                            s = table[raw][col];
+                        }
+                        w += s + "&nbsp;&nbsp;&nbsp;";
+                    }
+                    if(raw >= 4){
+                        w +='<br>';
+                    }
+                }
+                $('body').html(w);
+            })
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
